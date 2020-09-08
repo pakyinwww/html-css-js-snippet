@@ -1,0 +1,30 @@
+<html>
+
+<head></head>
+
+<body width="100%">
+  <script>
+    function onOrientationChange() {
+      let vw = 0;
+      let vh = 0;
+      let angle = 0;
+
+      if(document && document.documentElement){
+        vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+      }
+      if(window && window.screen && window.screen.orientation){
+        angle = window.orientation
+      }
+      out = `${vw} x ${vh} <br/> angle: ${angle} <br/> devicePixelRatio: ${window.devicePixelRatio}`
+      out += `<br/>  ${screen.width} x ${screen.height}`
+      document.body.innerHTML = out
+      
+    }
+    window.addEventListener("orientationchange", onOrientationChange, false);
+    window.addEventListener("resize", onOrientationChange, false);
+    onOrientationChange();
+  </script>
+</body>
+
+</html>
